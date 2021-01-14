@@ -1,5 +1,6 @@
 // Require EXPRESS
 const express = require("express");
+const path = require("path");
 // CREATE AN INSTANCE OF EXPRESS
 const app = express();
 // CREATE A PORT FOR THE APP TO RUN
@@ -24,15 +25,15 @@ const arrayOfObjects = [{}];
 // HTML ROUTES
 // ROUTE FOR HOME
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "home.html"));
+  res.sendFile(path.join(__dirname, "views/home.html"));
 });
 // ROUTE FOR TABLES
 app.get("/tables", (req, res) => {
-  res.sendFile(path.join(__dirname, "tables.html"));
+  res.sendFile(path.join(__dirname, "views/tables.html"));
 });
 // ROUTE FOR RESERVE
 app.get("/reserve", (req, res) => {
-  res.sendFile(path.join(__dirname, "reserve.html"));
+  res.sendFile(path.join(__dirname, "views/reserve.html"));
 });
 // API ROUTES
 app.get("/api/tables", (req, res) => {
