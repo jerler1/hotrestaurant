@@ -27,13 +27,18 @@ Note: We know this is a hard activity. We know you aren't yet comfortable with N
 ## Phase I - For this first phase, aim to write out the pieces that will need to be programmed to create the functionality of your application. Try to break it into 6-7 pieces
 
 * Create the front-end (visuals) for home page, reservation form, and reservation views.
-
+// Eid and Selena
+// Make basic html pages for the home page, reservation form and the reservation views.
+// On click events for the various buttons.  View tables and Make reservation.
 * Create a basic server using Express.JS
-
+// John and Ik.
+// Make a server.
 * Create a few array variables that will hold the data
 
 * Create a set of routes for getting and posting table data
-
+/home
+/reservations
+/reservations
 * Create a set of routes for displaying the HTML pages
 
 * Use jQuery to run AJAX calls to GET and POST data from users to the Express server
