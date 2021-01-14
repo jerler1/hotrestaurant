@@ -23,13 +23,48 @@ const arrayOfObjects = [{}];
 
 // HTML ROUTES
 // ROUTE FOR HOME
-app.get("/", () => {});
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "home.html"));
+});
 // ROUTE FOR TABLES
-app.get("/tables", () => {});
+app.get("/tables", (req, res) => {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
 // ROUTE FOR RESERVE
-app.get("/reserve", () => {});
+app.get("/reserve", (req, res) => {
+  res.sendFile(path.join(__dirname, "reserve.html"));
+});
 // API ROUTES
+app.get("/api/tables", (req, res) => {
+  return res.json(tables);
+});
+
 // GET ALL TABLE DATA
+app.get("/api/tables/:tables"),
+  (req, res) => {
+    var tableChosen = req.params.tables;
+
+    for (let i = 0; i < tables.length; i++) {
+      if (tableChosen === tables[i].routeName) {
+        return res.json(tables[i]);
+      }
+    }
+  };
+app.get("/api/reserves", (req, res) => {
+  return res.json(waitlist);
+});
+app.get("/api/reserves/:reserves"),
+  (req, res) => {
+    var waitChosen = req.params.waitlist;
+
+    for (let i = 0; i < waitlist.length; i++) {
+      if (waitChosen === waitlist[i].routeName) {
+        return res.json(waitlist[i]);
+      }
+    }
+  };
+
+
 
 // CREATE A TABLE/RESERVATION
 
