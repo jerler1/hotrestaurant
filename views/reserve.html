@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hot Restaurant</title>
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hot Restaurant</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-  <div class="container"></div>
+  </head>
+
+  <body>
+
+    <div class="container"></div>
     <div class="jumbotron">
       <h1>Hot Restaurant</h1>
       <h3>Make you reservation</h3>
       <hr>
       <a href="/tables"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Tables</button>
-    <br>
-    <a href="/home">
-    <button type="submit" class="btn btn-primary">Home</button>
-    </a>
+        <br>
+        <a href="/home">
+          <button type="submit" class="btn btn-primary">Home</button>
+        </a>
     </div>
     <div class="row">
 
@@ -41,44 +43,55 @@
 
               <div class="form-group">
                 <label for="role">Phone Number</label>
-                <input type="text" class="form-control" id="role">
+                <input type="text" class="form-control" id="phone">
               </div>
 
               <div class="form-group">
                 <label for="age">Email</label>
-                <input type="text" class="form-control" id="age">
+                <input type="text" class="form-control" id="email">
               </div>
 
               <div class="form-group">
-                <label for="force-points">Unique ID</label>
-                <input type="text" class="form-control" id="force-points">
+                <label for="unique-id">Unique ID</label>
+                <input type="text" class="form-control" id="unique-id">
               </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            
-            
           </div>
+          <button type="submit" class="btn btn-primary form">Submit</button>
+          </form>
+
+
         </div>
-
       </div>
+
     </div>
-  </div>
+    </div>
+    </div>
 
-  <script type="text/javascript">
-    // Question: What does this code do?
-    //make api call 
-    //alert user 
+    <script type="text/javascript">
+      // Question: What does this code do?
+      //make api call 
+      //alert user 
+      $(".form").on("click", function (event) {
+        event.preventDefault();
+        var newTable = {
+          name: $("#name").val().trim(),
+          number: $("#phone").val().trim(),
+          email: $("#email").val().trim(),
+          id: $("#unique-id").val().trim()
+        };
 
-   
-      
+        // Question: What does this code do??
+        $.post("/api/tables", newTable)
+          .then(function (data) {
+            console.log("add.html", data);
+            alert("adding a table...");
+          });
+      });
 
-      // Question: What does this code do??
-      
-    
-  </script>
+    </script>
 
-</body>
+  </body>
+
 </html>
 
 
